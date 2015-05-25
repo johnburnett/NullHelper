@@ -1,0 +1,454 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NULL_HELPER DIALOGEX 0, 0, 110, 246
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_NULL_XSCALE_EDIT,"CustEdit",WS_TABSTOP,45,51,35,
+                    10
+    CONTROL         "",IDC_NULL_YSCALE_EDIT,"CustEdit",WS_TABSTOP,45,62,35,
+                    10
+    CONTROL         "",IDC_NULL_ZSCALE_EDIT,"CustEdit",WS_TABSTOP,45,73,35,
+                    10
+    CONTROL         "L",IDC_NULL_LOCKXYZ,"Button",BS_AUTOCHECKBOX |
+                    BS_PUSHLIKE | WS_TABSTOP,91,51,11,32,WS_EX_STATICEDGE
+    CONTROL         "Non-Scaling Display .........",IDC_NONSCALING,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,87,95,10
+    COMBOBOX        IDC_NULL_NULLSHAPE,7,116,49,94,CBS_DROPDOWNLIST |
+                    CBS_OEMCONVERT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Solid",IDC_NULL_SOLID,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,59,114,43,8
+    CONTROL         "Color Axis",IDC_NULL_COLORAXIS,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,59,123,43,8
+    CONTROL         "Mix Wire Color ..................",
+                    IDC_NULL_MIXWIRECOLOR,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,7,135,95,8
+    CONTROL         "Display Label ....................",
+                    IDC_NULL_DISPLAYLABEL,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_TABSTOP,7,175,95,8
+    CONTROL         "",IDC_NULL_LABEL,"CustEdit",WS_TABSTOP,8,187,94,11
+    CONTROL         "Display Name ...................",IDC_NULL_DISPLAYNAME,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    204,95,8
+    CONTROL         "Display Parent Name ........",IDC_NULL_DISPLAYPARENT,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    216,95,8
+    CONTROL         "Draw Link Line .................",IDC_NULL_DRAWLINKLINE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    227,95,10
+    CONTROL         "",IDC_NULL_XSCALE_SPIN,"SpinnerControl",0x0,81,51,7,10
+    CONTROL         "",IDC_NULL_YSCALE_SPIN,"SpinnerControl",0x0,81,62,7,10
+    CONTROL         "",IDC_NULL_ZSCALE_SPIN,"SpinnerControl",0x0,81,73,7,10
+    LTEXT           "X Scale:",IDC_NULL_XSCALE_LABEL,12,52,28,8
+    LTEXT           "Y Scale:",IDC_NULL_YSCALE_LABEL,12,63,28,8
+    LTEXT           "Z Scale:",IDC_NULL_ZSCALE_LABEL,12,74,28,8
+    CONTROL         130,IDC_NULL_COLOR01,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,10,11,12,11
+    CONTROL         127,IDC_NULL_COLOR02,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,23,11,12,11
+    CONTROL         119,IDC_NULL_COLOR03,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,36,11,12,11
+    CONTROL         116,IDC_NULL_COLOR04,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,49,11,12,11
+    CONTROL         118,IDC_NULL_COLOR05,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,62,11,12,11
+    CONTROL         120,IDC_NULL_COLOR06,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,75,11,12,11
+    CONTROL         129,IDC_NULL_COLOR07,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,88,11,12,11
+    CONTROL         115,IDC_NULL_COLOR08,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,10,23,12,11
+    CONTROL         125,IDC_NULL_COLOR09,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,23,23,12,11
+    CONTROL         123,IDC_NULL_COLOR10,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,36,23,12,11
+    CONTROL         121,IDC_NULL_COLOR11,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,49,23,12,11
+    CONTROL         122,IDC_NULL_COLOR12,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,62,23,12,11
+    CONTROL         124,IDC_NULL_COLOR13,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,75,23,12,11
+    CONTROL         126,IDC_NULL_COLOR14,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,88,23,12,11
+    CONTROL         "Center Point .....................",
+                    IDC_NULL_CENTERPOINT,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,7,147,95,8
+    GROUPBOX        "Label:",IDC_NULL_LABEL_GROUP,2,164,106,79
+    GROUPBOX        "Null Shape:",IDC_NULLSHAPE_GROUP,2,105,106,56
+    GROUPBOX        "Scale:",IDC_NULL_SCALE_GROUP,2,41,106,61
+    GROUPBOX        "Quick WireColor:",IDC_STATIC,2,0,106,38
+END
+
+IDD_NULL_HELPER1 DIALOG  0, 0, 110, 358
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_NULL_XSCALE_EDIT,"CustEdit",WS_TABSTOP,45,51,35,
+                    10
+    CONTROL         "",IDC_NULL_YSCALE_EDIT,"CustEdit",WS_TABSTOP,45,62,35,
+                    10
+    CONTROL         "",IDC_NULL_ZSCALE_EDIT,"CustEdit",WS_TABSTOP,45,73,35,
+                    10
+    CONTROL         "L",IDC_NULL_LOCKXYZ,"Button",BS_AUTOCHECKBOX |
+                    BS_PUSHLIKE | WS_TABSTOP,91,51,11,32
+    CONTROL         "Non-Scaling Display .........",IDC_NONSCALING,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,87,95,10
+    COMBOBOX        IDC_NULL_NULLSHAPE,7,116,49,94,CBS_DROPDOWNLIST |
+                    CBS_OEMCONVERT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Solid",IDC_NULL_SOLID,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,59,114,43,8
+    CONTROL         "Color Axis",IDC_NULL_COLORAXIS,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,59,123,43,8
+    CONTROL         "Mix Wire Color ..................",
+                    IDC_NULL_MIXWIRECOLOR,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,7,135,95,8
+    CONTROL         "Display Label ....................",
+                    IDC_NULL_DISPLAYLABEL,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_TABSTOP,7,175,95,8
+    CONTROL         "",IDC_NULL_LABEL,"CustEdit",WS_TABSTOP,8,187,94,11
+    CONTROL         "Display Name ...................",IDC_NULL_DISPLAYNAME,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    204,95,8
+    CONTROL         "Display Parent Name ........",IDC_NULL_DISPLAYPARENT,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    216,95,8
+    CONTROL         "Draw Link Line .................",IDC_NULL_DRAWLINKLINE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,7,
+                    227,95,10
+    CONTROL         "",IDC_NULL_XSCALE_SPIN,"SpinnerControl",0x0,81,51,7,10
+    CONTROL         "",IDC_NULL_YSCALE_SPIN,"SpinnerControl",0x0,81,62,7,10
+    CONTROL         "",IDC_NULL_ZSCALE_SPIN,"SpinnerControl",0x0,81,73,7,10
+    LTEXT           "X Scale:",IDC_NULL_XSCALE_LABEL,12,52,28,8
+    LTEXT           "Y Scale:",IDC_NULL_YSCALE_LABEL,12,63,28,8
+    LTEXT           "Z Scale:",IDC_NULL_ZSCALE_LABEL,12,74,28,8
+    CONTROL         130,IDC_NULL_COLOR01,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,10,11,12,11
+    CONTROL         127,IDC_NULL_COLOR02,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,23,11,12,11
+    CONTROL         119,IDC_NULL_COLOR03,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,36,11,12,11
+    CONTROL         116,IDC_NULL_COLOR04,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,49,11,12,11
+    CONTROL         118,IDC_NULL_COLOR05,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,62,11,12,11
+    CONTROL         120,IDC_NULL_COLOR06,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,75,11,12,11
+    CONTROL         129,IDC_NULL_COLOR07,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,88,11,12,11
+    CONTROL         115,IDC_NULL_COLOR08,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,10,23,12,11
+    CONTROL         125,IDC_NULL_COLOR09,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,23,23,12,11
+    CONTROL         123,IDC_NULL_COLOR10,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,36,23,12,11
+    CONTROL         121,IDC_NULL_COLOR11,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,49,23,12,11
+    CONTROL         122,IDC_NULL_COLOR12,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,62,23,12,11
+    CONTROL         124,IDC_NULL_COLOR13,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,75,23,12,11
+    CONTROL         126,IDC_NULL_COLOR14,"Static",SS_BITMAP | SS_NOTIFY |
+                    WS_BORDER,88,23,12,11
+    CONTROL         "Center Point .....................",
+                    IDC_NULL_CENTERPOINT,"Button",BS_AUTOCHECKBOX |
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,7,147,95,8
+    LISTBOX         IDC_NULL_REF_LIST,8,270,95,43,LBS_NOINTEGRALHEIGHT | NOT
+                    WS_VISIBLE | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CONTROL         "Display Lines ....................",IDC_NULL_REF_LINE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | NOT WS_VISIBLE |
+                    WS_TABSTOP,8,317,95,10
+    CONTROL         "Display Distances .............",IDC_NULL_REF_DISTANCE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | NOT WS_VISIBLE |
+                    WS_TABSTOP,8,328,95,10
+    CONTROL         "Add",IDC_NULL_REF_ADD,"CustButton",NOT WS_VISIBLE |
+                    WS_TABSTOP,8,257,40,11
+    CONTROL         "Remove",IDC_NULL_REF_REMOVE,"CustButtom",NOT WS_VISIBLE |
+                    WS_TABSTOP,62,257,40,11
+    CONTROL         "Display Labels ..................",IDC_NULL_REF_LABEL,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | NOT WS_VISIBLE |
+                    WS_TABSTOP,8,339,95,10
+    GROUPBOX        "Reference Objects",IDC_NULL_REF_GROUP,2,247,106,107,NOT
+                    WS_VISIBLE
+    GROUPBOX        "Label:",IDC_NULL_LABEL_GROUP,2,164,106,79
+    GROUPBOX        "Null Shape:",IDC_NULLSHAPE_GROUP,2,105,106,56
+    GROUPBOX        "Scale:",IDC_NULL_SCALE_GROUP,2,41,106,61
+    GROUPBOX        "Quick WireColor:",IDC_STATIC,2,0,106,38
+END
+
+IDD_ABOUT_BFD DIALOG  0, 0, 108, 28
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",-1,2,0,104,26
+    RTEXT           "0000.00.00",IDC_ABOUT_VERSION,63,11,37,8
+    RTEXT           "John Burnett",-1,7,11,40,8
+END
+
+IDD_ABOUT_FOO DIALOGEX 0, 0, 108, 58
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "",IDC_STATIC,2,0,104,55
+    RTEXT           "0000.00.00",IDC_ABOUT_VERSION,62,27,37,8
+    PUSHBUTTON      "www.fooTOOLS.com",IDC_ABOUT_WEB,6,38,96,13,BS_CENTER |
+                    NOT WS_TABSTOP,WS_EX_STATICEDGE
+    LTEXT           "Version ..............",IDC_STATIC,7,27,54,8
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE |
+                    SS_SUNKEN,25,8,57,17
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,0,0,0
+ PRODUCTVERSION 0,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "TECH: "
+            VALUE "FileDescription", "Null Helper"
+            VALUE "FileVersion", "0, 0, 0, 0"
+            VALUE "InternalName", "Null Helper"
+            VALUE "OriginalFilename", "NullHelper.dlo"
+            VALUE "ProductName", "Null Helper"
+            VALUE "ProductVersion", "0, 0, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_COLOR_BLACK         BITMAP                  "Resources\\Color_Black.bmp"
+IDB_COLOR_BLUE          BITMAP                  "Resources\\Color_Blue.bmp"
+IDB_COLOR_CYAN          BITMAP                  "Resources\\Color_Cyan.bmp"
+IDB_COLOR_GREEN         BITMAP                  "Resources\\Color_Green.bmp"
+IDB_COLOR_MAGENTA       BITMAP                  "Resources\\Color_Magenta.bmp"
+IDB_COLOR_MUTEDBLUE     BITMAP                  "Resources\\Color_MutedBlue.bmp"
+IDB_COLOR_MUTEDCYAN     BITMAP                  "Resources\\Color_MutedCyan.bmp"
+IDB_COLOR_MUTEDGREEN    BITMAP                  "Resources\\Color_MutedGreen.bmp"
+IDB_COLOR_MUTEDMAGENTA  BITMAP                  "Resources\\Color_MutedMagenta.bmp"
+IDB_COLOR_MUTEDRED      BITMAP                  "Resources\\Color_MutedRed.bmp"
+IDB_COLOR_MUTEDYELLOW   BITMAP                  "Resources\\Color_MutedYellow.bmp"
+IDB_COLOR_RED           BITMAP                  "Resources\\Color_Red.bmp"
+IDB_COLOR_YELLOW        BITMAP                  "Resources\\Color_Yellow.bmp"
+IDB_COLOR_HELPERBLUE    BITMAP                  "Resources\\Color_HelperBlue.bmp"
+IDB_FOOTOOLS            BITMAP                  "fooTOOLS_green.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_NULL_HELPER DLGINIT
+BEGIN
+    IDC_NULL_NULLSHAPE, 0x403, 5, 0
+0x6f4e, 0x656e, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 6, 0
+0x7243, 0x736f, 0x0073,
+    IDC_NULL_NULLSHAPE, 0x403, 4, 0
+0x6f42, 0x0078,
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x7053, 0x6568, 0x6572, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 5, 0
+0x614a, 0x6b63, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x6556, 0x7463, 0x726f, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x7554, 0x7472, 0x656c, "\000"
+    0
+END
+
+IDD_NULL_HELPER1 DLGINIT
+BEGIN
+    IDC_NULL_NULLSHAPE, 0x403, 5, 0
+0x6f4e, 0x656e, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 6, 0
+0x7243, 0x736f, 0x0073,
+    IDC_NULL_NULLSHAPE, 0x403, 4, 0
+0x6f42, 0x0078,
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x7053, 0x6568, 0x6572, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 5, 0
+0x614a, 0x6b63, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x6556, 0x7463, 0x726f, "\000"
+    IDC_NULL_NULLSHAPE, 0x403, 7, 0
+0x7554, 0x7472, 0x656c, "\000"
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_NULL_HELPER, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 232
+    END
+
+    IDD_NULL_HELPER1, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 344
+    END
+
+    IDD_ABOUT_BFD, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 3
+    END
+
+    IDD_ABOUT_FOO, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 33
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_LIBDESCRIPTION      "Null Helper - Souped up helper object"
+    IDS_NULL_CLASSNAME      "Null"
+    IDS_NULL_XSCALE         "X Scale"
+    IDS_NULL_YSCALE         "Y Scale"
+    IDS_NULL_ZSCALE         "Z Scale"
+    IDS_NULL_LOCKXYZ        "Lock XYZ"
+    IDS_NULL_HELPER_PARAMETERS "Null Parameters"
+    IDS_NULL_DEFAULTNAME    "Null"
+    IDS_NULL_NULLSHAPE      "Null Shape"
+    IDS_NULL_DRAWDEPTH      "Draw Depth"
+    IDS_NULL_SOLID          "Solid"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NULL_DISPLAYLABEL   "Display Label"
+    IDS_NULL_LABEL          "Label"
+    IDS_NULL_SHAPE_NONE     "None"
+    IDS_NULL_SHAPE_CROSS    "Cross"
+    IDS_NULL_SHAPE_JACK     "Jack"
+    IDS_NULL_SHAPE_BOX      "Box"
+    IDS_NULL_SHAPE_VECTOR   "Vector"
+    IDS_NULL_SHAPE_SPHERE   "Sphere"
+    IDS_NULL_SHAPE_TURTLE   "Turtle"
+    IDS_NULL_NONSCALING     "Non-Scaling Display"
+    IDS_NULL_DISPLAYPARENT  "Display Parent Name"
+    IDS_NULL_COLORAXIS      "Color Axis"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NULL_DRAWLINKLINE   "Draw Link Line"
+    IDS_NULL_LINKLINETYPE   "Link Line Type"
+    IDS_NULL_DISPLAYNAME    "Display Name"
+    IDS_NULL_MIXWIRECOLOR   "Mix Wire Color"
+    IDS_NULL_CENTERPOINT    "Display Center Point"
+    IDS_NULL_REF_NODES      "Reference Nodes"
+    IDS_NULL_REF_LINE       "Display Reference Lines"
+    IDS_NULL_REF_DISTANCE   "Display Reference Distances"
+    IDS_NULL_REF_LABEL      "Display Reference Labels"
+    IDS_NULL_SHAPE_LINE     "Line"
+    IDS_VERSION             "2007.02.20"
+    IDS_CATEGORY_BFD        "Standard"
+    IDS_CATEGORY_FOO        "Standard"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

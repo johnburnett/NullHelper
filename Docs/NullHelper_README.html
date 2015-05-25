@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+	<TITLE>Null Helper</TITLE>
+	<STYLE TYPE="text/css">
+	<--
+		HR { color:rgb(140,140,140); height:1px; }
+		IMG { border-style:solid; border-width:1px; border-color:rgb(0,0,0); }
+		CODE { color:rgb(0,0,220); }
+		P.indent { padding:0pt 0pt 0pt 20pt }
+		DL.indent { padding:0pt 0pt 0pt 20pt }
+		DD { padding:3pt; }
+		LI { padding:3pt; }
+		LI.compact { padding:0pt; }
+		BODY { color:rgb(0,0,0); background-color:rgb(220,220,220); font-family:"Veranda","Arial","sans-serif"; font-size:10pt; }
+		A { text-decoration:none; }
+		A:link { color:rgb(0,0,150); }
+		A:visited { color:rgb(127,0,0) }
+		A:hover { background-color:rgb(255,255,0); }
+	-->
+	</STYLE>
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+<H1>Null Helper</H1>
+<UL>
+	<LI CLASS="compact"><A HREF="#options">Options</A></LI>
+	<LI CLASS="compact"><A HREF="#bugs">Known Bugs/Limitations</A></LI>
+	<LI CLASS="compact"><A HREF="#history">History</A></LI>
+	<LI CLASS="compact"><A HREF="#contact">Contact / Disclaimer / License</A></LI>
+</UL>
+
+<HR>
+<DIV ALIGN="center">
+	<P>A bit like a (much) enhanced Dummy object, with options including shape, wirecolor, size, and viewport labels, etc.</P>
+	<P><IMG SRC="./images/Sample_Null.gif" ALT="Sample Image"></P>
+	<P><FONT COLOR="CC0000"><BIG><B>IMPORTANT:</B></BIG></FONT><BR>
+	If you have the <I>jbHelpers.dlo</I> plugin installed, please delete it (otherwise you will get plugin conflicts at startup).<BR>
+	jbHelpers has been superceded by this plugin.</P>
+</DIV>
+
+<A NAME="options"></A>
+<HR>
+<H3>Options:</H3>
+<DIV ALIGN="center">
+	<IMG SRC="./images/UI_Null.gif" ALT="User Interface">
+</DIV>
+<BR>
+<BR>
+<UL>
+	<LI><B>Creation Options</B><BR>
+	While Creating, you can hold the following keys down to get different creation behaviors:
+	<DL>
+		<DT><B>Shift</B>
+			<DD>Forces the null to be aligned to the current viewport (Null defaults to world alignement, which is better for character rigs).
+		<DT><B>Control</B>
+			<DD>Lock the size of the null, so you can reposition the null while dragging.
+		<DT>
+	</DL>
+	This lets you do something like: Click-drag to create a world-aligned null of a certain size. Then, hold <I><B>Ctrl</B></I> and single click repeatedly to quickly create a bunch of same-sized nulls.
+	<BR><BR>
+
+	<LI><B>Quick Color Group:</B><BR>
+	Simply lets you set the wireframe color of all the selected Null instances.
+	<BR><BR>
+
+	<LI><B>Scale Group:</B>
+	<DL>
+		<DT><B>L (Lock XYZ)</B>
+			<DD>Forces the Null object to use only the X Scale, so the object is always uniform in size.
+		<DT><B>X, Y, and Z Scale</B>
+			<DD>The size of the object.<BR>
+			<I>Note this isn't the exact size, as some Null shapes don't always have equal lengths on all three axes (i.e. the Vector or Turtle shapes).</I>
+		<DT><B>Non-Scaling Display</B>
+			<DD>Sets whether the object changes size as you zoom in and out (like most objects), or is displayed as a constant size in the viewport (like lights and cameras).<BR>
+			The meaning of the scale parameters above changes slightly depending on this setting.  If it's on, the scale is taken to mean the "percent of the viewport width".  So 100 makes the Null size equal the width of the viewport, 50 is half the viewport width, etc.
+		<BR>
+	</DL><BR>
+
+	<LI><B>Null Shape Group:</B><BR>
+	<DL>
+		<DT><B>Null Shape</B>
+			<DD>Select what kind of shape the Null will be.  The types are:
+			<UL>
+				<LI>None - Displays as a simple dot. Useful with the Label display (see below).<BR>
+				(Note: if <I>Solid</I> is on, the point will display as a hollow circle when the Z axis is pointing away from you).
+				<LI>Cross - Useful for pretending that you're using Softimage.
+				<LI>Jack - Default, similar to the Cross shape, but has "bulbs" that make it easier to see on a grid.<BR>
+				Additionally, the bulbs show which axis is pointing out of the screen.<BR>
+				A solid bulb means the axis pointing "out" of the screen, while a hollow bulb means it is pointing "in".
+				<LI>Box - A dummy.
+				<LI>Sphere - A round dummy.
+				<LI>Vector - A unit vector.  Useful for visualizing some things.
+				<LI>Turtle - A simple shape that's unique on all three axes, so you can see what its orientation is without having to display its local axes.
+				<LI>Line - A line.  Period.  Can be a less cluttered version of the Vector when <I>Center Point</I> is on.
+			</UL>
+		<DT><B>Solid</B>
+			<DD>Makes the shape display more "solid" and easier to see.
+		<DT><B>Color Axis</B>
+			<DD>Colors the axes of the shape, so that positive XYZ are bright red, green, and blue, and negative XYZ are darker shades.<BR>
+			Only available when the null shape is either <I>Cross</I> or <I>Jack</I>, and <I>Solid</I> is off.
+		<DT><B>Mix Wire Color</B>
+			<DD>If on, the base wireframe color still shows through slightly, even when the Null is selected or frozen.  Handy when using the <I>Color Axis</I> option, or when you need to see the Null wireframe color all the time.
+		<DT><B>Center Point</B>
+			<DD>Displays a dot at the centerpoint of the Null (note: the <I>Solid</I> option has the same effect on this as on the <I>None</I> shape type).
+	</DL><BR>
+
+	<LI><B>Label Group:</B><BR>
+	<DL>
+		<DT><B>Display Label</B>
+			<DD>Toggles the display of the label text in the viewport.
+		<DT><B>Label</B>
+			<DD>A line of text that you can have displayed in the viewport.
+		<DT><B>Display Name</B>
+			<DD>Display the node name in the viewport.
+		<DT><B>Display Parent Name</B>
+			<DD>Display the node's parent's name in the viewport.
+		<DT><B>Draw Link Line</B>
+			<DD>Draw a line from the node to the node's parent.
+	</DL><BR>
+</UL>
+<P><A HREF="#top">Back To Top...</A></P>
+
+<A NAME="bugs"></A>
+<HR>
+<H3>Known Bugs/Limitations:</H3>
+<UL>
+	<LI>If you're using Direct3D, turn off "Use Wireframe Faces" in the Direct3D driver setup to avoid display oddities.
+</UL>
+<P><A HREF="#top">Back To Top...</A></P>
+
+<A NAME="history"></A>
+<HR>
+<H3>History:</H3>
+<PRE>
+2000.05.15 - Created.
+2000.06.06 - Added Non-Scaling Display.
+2001.01.01 - Added Shift/Ctrl options while creating.
+2001.03.14 - Added Color Axis, bug fix.
+2001.03.25 - Added Display Name, Parent Name, and Link Line.
+2001.03.29 - Added Mix Wire Color.
+2001.03.31 - Added Quick WireColor, ripped out the unfinished jbHelpers crap.
+             Hopefully I can stop screwing with this plugin for a while :P.
+2001.06.29 - Center Point option
+             "Better" defaults (colored jack shape)
+             Reversed behaviour of shift key during creation (Null defaults to world alignment now)
+             Null doesn't crash in D3D mode anymore.
+             Couldn't select Null in OGL or D3D mode with certain display options on (fixed).
+2001.10.09 - Cranked the res on the Sphere shapes
+             Fixed the creation behaviour so the null size matches the distance you drag (the
+             size used to be half of what it should have been)
+2001.11.07 - Added Line shape type
+             Changed the way backfacing None/Jack points displayed (used to be small dots,
+             now uses a hollow circle for clarity)
+2007.02.20 - Updating for public 3dsmax9 release.
+2008.04.05 - Updated to 64 bit and 3dsmax 2008.  Thanks to <a href="http://www.maxplugins.de/">David Baker</a> for the help.
+</PRE>
+<P><A HREF="#top">Back To Top...</A></P>
+
+<A NAME="contact"></A>
+<HR>
+<H3>Contact / Disclaimer / License:</H3>
+Bug reports/comments/suggestions: <A HREF="http://www.footools.com/">http://www.footools.com/</A>. If you use this software on a project, sending an e-mail/postcard indicating such would be appreciated.<BR>
+<PRE>
+This software is provided 'as-is', without any express or implied warranty. In no
+event will the author be held liable for any damages arising from the use of this
+software.
+
+Permission is granted to anyone to use this software, subject to the following
+restrictions:
+
+1. The origin of this software must NOT be misrepresented; you must not claim that
+   you wrote the original software.
+
+2. This software may NOT be bundled with any other product or included in any
+   compilation without the express permission of the author.
+
+3. This notice must NOT be removed or altered from any distribution of this
+   software.
+</PRE>
+<P><A HREF="#top">Back To Top...</A></P>
+</BODY>
+</HTML>
