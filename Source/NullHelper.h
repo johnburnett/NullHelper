@@ -17,13 +17,17 @@
 
 #pragma warning(disable: 4514) // unreferenced inline function has been removed
 #pragma warning(disable: 4710) // function not expanded
+#if MAX_VERSION_MAJOR >= 12	//Max 2010
+#pragma warning(default: 4263)
+#pragma warning(default: 4264)
+#endif
 #pragma warning(push, 3)
 #include "max.h"
 
-#if (MAX_RELEASE >= 9000)
-#include "maxheapdirect.h"	//max 9
+#if MAX_VERSION_MAJOR < 9	//Max 9
+#include "max_mem.h"
 #else
-#include "max_mem.h"		//max 8 and earlier
+#include "maxheapdirect.h"
 #endif
 
 #include "iparamm2.h"
@@ -98,7 +102,11 @@ class NullHelperObject: public HelperObject
 		int HitTest(TimeValue t, INode* inode, int type, int crossing, int flags, IPoint2 *p, ViewExp *vpt);
 		int Display(TimeValue t, INode* inode, ViewExp *vpt, int flags);
 		CreateMouseCallBack* GetCreateMouseCallBack();
+#if MAX_VERSION_MAJOR < 15	//Max 2013
 		TCHAR *GetObjectName() { return GetString(IDS_NULL_CLASSNAME); }
+#else
+		const TCHAR *GetObjectName() { return GetString(IDS_NULL_CLASSNAME); }
+#endif
 
 		void BeginEditParams( IObjParam *ip, ULONG flags,Animatable *prev);
 		void EndEditParams( IObjParam *ip, ULONG flags,Animatable *next);
@@ -138,16 +146,31 @@ class NullHelperObject: public HelperObject
 		// From ref
  		int NumRefs() { return 1; }
 		RefTargetHandle GetReference(int i);
+#if MAX_VERSION_MAJOR < 14	//Max 2012
 		void SetReference(int i, RefTargetHandle rtarg);
-
-#if (MAX_RELEASE >= 9000)	//max 9
-		RefTargetHandle		Clone(RemapDir& remap = DefaultRemapDir());
-#else						//max 8 and earlier
-		RefTargetHandle		Clone(RemapDir& remap = NoRemap());
+#else
+private:
+		virtual void SetReference(int i, RefTargetHandle rtarg);
+public:
 #endif
 
+#if MAX_VERSION_MAJOR < 9	//Max 9
+		RefTargetHandle		Clone(RemapDir& remap = NoRemap());
+#else
+	#if MAX_VERSION_MAJOR < 14	//Max 2012
+		RefTargetHandle		Clone(RemapDir& remap = DefaultRemapDir());
+	#else
+		RefTargetHandle		Clone(RemapDir& remap);
+	#endif
+#endif
+
+#if MAX_VERSION_MAJOR < 17	//Max 2015
 		RefResult NotifyRefChanged( Interval changeInt, RefTargetHandle hTarget,
 		   PartID& partID, RefMessage message );
+#else
+		RefResult NotifyRefChanged(const Interval& changeInt, RefTargetHandle hTarget, 
+		   PartID& partID, RefMessage message, BOOL propagate );		
+#endif
 
 		void SetDrawColors(INode* inode);
 		void SetNodeWireColor(DWORD col);
@@ -191,10 +214,10 @@ class NullHelperDlgProc : public ParamMap2UserDlgProc
 		NullHelperDlgProc() {}
 		NullHelperDlgProc(NullHelperObject *nho_in) { nho = nho_in; }
 
-#if (MAX_RELEASE >= 9000)
-		INT_PTR DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-#else
+#if MAX_VERSION_MAJOR < 9	//Max 9
 		BOOL DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+#else
+		INT_PTR DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 #endif
 		void DeleteThis() { }
 

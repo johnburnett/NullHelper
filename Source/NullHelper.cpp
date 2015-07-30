@@ -106,10 +106,10 @@ void NullHelperDlgProc::TwiddleEnables(TimeValue t, HWND hWnd)
 	EnableWindow(GetDlgItem(hWnd,IDC_NULL_COLORAXIS), doColor);
 }
 
-#if (MAX_RELEASE >= 9000)
-INT_PTR NullHelperDlgProc::DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
-#else
+#if MAX_VERSION_MAJOR < 9 //Max 9
 BOOL NullHelperDlgProc::DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+#else
+INT_PTR NullHelperDlgProc::DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 #endif
 {
 	int id = LOWORD(wParam);
@@ -239,6 +239,9 @@ CreateMouseCallBack* NullHelperObject::GetCreateMouseCallBack()
 /*===========================================================================*\
  |	Paramblock2 Descriptor
 \*===========================================================================*/
+#if MAX_VERSION_MAJOR < 15	//Max 2013
+ #define p_end end
+#endif
 
 static ParamBlockDesc2 nh_param_blk ( nh_params, _T("NullHelperParameters"),  0, &NullHelperCD, P_AUTO_CONSTRUCT + P_AUTO_UI, 0,
 	//rollout
@@ -247,90 +250,90 @@ static ParamBlockDesc2 nh_param_blk ( nh_params, _T("NullHelperParameters"),  0,
 	nh_lockxyz,	_T("lockXYZ"),	TYPE_BOOL,	0,	IDS_NULL_LOCKXYZ,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX,	IDC_NULL_LOCKXYZ,
-		end,
+		p_end,
 	nh_xscale,	_T("xScale"),	TYPE_FLOAT,	P_ANIMATABLE,	IDS_NULL_XSCALE,
 		p_default,		1.0f,
 		p_range, 		0.0f, 999999.0f,
 		p_ui,			TYPE_SPINNER, EDITTYPE_UNIVERSE, IDC_NULL_XSCALE_EDIT, IDC_NULL_XSCALE_SPIN, 0.1f,
-		end,
+		p_end,
 	nh_yscale,	_T("yScale"),	TYPE_FLOAT,	P_ANIMATABLE,	IDS_NULL_YSCALE,
 		p_default,		1.0f,
 		p_range, 		0.0f, 999999.0f,
 		p_ui,			TYPE_SPINNER, EDITTYPE_UNIVERSE, IDC_NULL_YSCALE_EDIT, IDC_NULL_YSCALE_SPIN, 0.1f,
-		end,
+		p_end,
 	nh_zscale,	_T("zScale"),	TYPE_FLOAT,	P_ANIMATABLE,	IDS_NULL_ZSCALE,
 		p_default,		1.0f,
 		p_range, 		0.0f, 999999.0f,
 		p_ui,			TYPE_SPINNER, EDITTYPE_UNIVERSE, IDC_NULL_ZSCALE_EDIT, IDC_NULL_ZSCALE_SPIN, 0.1f,
-		end,
+		p_end,
 	nh_solid,	_T("solid"),	TYPE_BOOL,	0,	IDS_NULL_SOLID,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX,	IDC_NULL_SOLID,
-		end,
+		p_end,
 	nh_nullshape,	_T("nullShape"),	TYPE_INT,	0,	IDS_NULL_NULLSHAPE,
 		p_ui, 			TYPE_INTLISTBOX,	IDC_NULL_NULLSHAPE,	0,
 		p_range, 		0, NUMSHAPES,
 		p_default,		2,
 		p_accessor,		&NullAccessor,
-		end,
+		p_end,
 	nh_displaylabel,	_T("displayLabel"),		TYPE_BOOL,	0,	IDS_NULL_DISPLAYLABEL,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_DISPLAYLABEL,
-		end,
+		p_end,
 	nh_label,		_T("label"),		TYPE_STRING,	0,		IDS_NULL_LABEL,
 		p_default,	_T("Label Text"),
 		p_ui,		TYPE_EDITBOX,	IDC_NULL_LABEL,
-		end,
+		p_end,
 	nh_nonscaling,		_T("nonScalingDisplay"),	TYPE_BOOL,	0,	IDS_NULL_NONSCALING,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NONSCALING,
-		end,
+		p_end,
 	nh_coloraxis,		_T("colorAxis"),			TYPE_BOOL,	0,	IDS_NULL_COLORAXIS,
 		p_default,	TRUE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_COLORAXIS,
-		end,
+		p_end,
 	nh_displayparent,	_T("displayParentName"),	TYPE_BOOL,	0,	IDS_NULL_DISPLAYPARENT,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_DISPLAYPARENT,
-		end,
+		p_end,
 	nh_drawlinkline,	_T("displayLinkLine"),	TYPE_BOOL,	0,	IDS_NULL_DRAWLINKLINE,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_DRAWLINKLINE,
-		end,
+		p_end,
 	nh_displayname,		_T("displayName"),		TYPE_BOOL,	0,	 IDS_NULL_DISPLAYNAME,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_DISPLAYNAME,
-		end,
+		p_end,
 	nh_mixwirecolor,	_T("mixWireColor"),	TYPE_BOOL,	0,	IDS_NULL_MIXWIRECOLOR,
 		p_default,	TRUE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_MIXWIRECOLOR,
-		end,
+		p_end,
 	nh_centerpoint,		_T("displayCenterPoint"),	TYPE_BOOL,	0,	IDS_NULL_CENTERPOINT,
 		p_default,	FALSE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_CENTERPOINT,
-		end,
+		p_end,
 /*
 	nh_ref_nodes,	_T("referenceNodes"), TYPE_INODE_TAB, 0, IDS_NULL_REFERENCENODES,
 		p_ui,			TYPE_NODELISTBOX, IDC_NULL_REF_LIST, IDC_NULL_REF_ADD, 0, IDC_NULL_REF_REMOVE,
-		end,
+		p_end,
 	nh_ref_line,	_T("displayReferenceLines"), TYPE_BOOL, 0, IDS_NULL_REF_LINE,
 		p_default,	TRUE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_REF_LINE,
-		end,
+		p_end,
 	nh_ref_distance,	_T("displayReferenceDistances"), TYPE_BOOL, 0, IDS_NULL_REF_DISTANCE,
 		p_default,	TRUE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_REF_DISTANCE,
-		end,
+		p_end,
 	nh_ref_label,	_T("displayReferenceLabels"), TYPE_BOOL, 0, IDS_NULL_REF_LABEL,
 		p_default,	TRUE,
 		p_ui,		TYPE_SINGLECHEKBOX,		IDC_NULL_REF_LABEL,
-		end,
+		p_end,
 	nh_linklinetype,	_T("linkLineType"),			TYPE_INT,	0,	IDS_NULL_LINKLINETYPE,
 		p_ui,		TYPE_RADIO,	2,	IDC_NULL_STRAIGHT,	IDC_NULL_BENT,
 		p_vals,		1,	2,
 		p_default,	1,
 		p_accessor,		&NullAccessor,
-		end,
+		p_end,
 	nh_drawdepth,	_T("drawDepth"),	TYPE_INT,	0,	IDS_NULL_DRAWDEPTH,
 		p_ui,			TYPE_RADIO, 3,	IDC_NULL_DEPTH_STANDARD,
 										IDC_NULL_DEPTH_ONTOP,
@@ -339,9 +342,9 @@ static ParamBlockDesc2 nh_param_blk ( nh_params, _T("NullHelperParameters"),  0,
 		p_accessor,		&NullAccessor,
 		p_range, 		1, 3,
 		p_default,		1,
-		end,
+		p_end,
 */
-	end
+	p_end
 );
 
 static Point3 black(0.0f,0.0f,0.0f);
@@ -428,9 +431,15 @@ void NullHelperObject::SetReference(int i, RefTargetHandle rtarg) {
 	}
 }
 
+#if MAX_VERSION_MAJOR < 17 //Max 2015
 RefResult NullHelperObject::NotifyRefChanged(
 		Interval changeInt, RefTargetHandle hTarget,
 		PartID& partID,  RefMessage message)
+#else
+RefResult NullHelperObject::NotifyRefChanged(
+		const Interval& changeInt, RefTargetHandle hTarget,
+		PartID& partID,  RefMessage message, BOOL propagate)
+#endif
 	{
 	switch (message) {
 		case REFMSG_CHANGE:
@@ -461,6 +470,13 @@ Interval NullHelperObject::ObjectValidity(TimeValue t) {
 void NullHelperObject::GetLocalBoundBox(
 		TimeValue t, INode* inode, ViewExp* vpt, Box3& box )
 {
+#if MAX_VERSION_MAJOR >= 15 //Max 2013
+	if ( ! vpt || ! vpt->IsAlive() )
+	{
+		box.Init();
+		return;
+	}
+#endif
 	UpdateMesh(t, vpt);
 	if (pblock2->GetInt(nh_nullshape))
 		box = mesh.getBoundingBox();
@@ -483,6 +499,13 @@ void NullHelperObject::GetLocalBoundBox(
 void NullHelperObject::GetWorldBoundBox(
 		TimeValue t, INode* inode, ViewExp* vpt, Box3& box )
 {
+#if MAX_VERSION_MAJOR >= 15 //Max 2013
+	if ( ! vpt || ! vpt->IsAlive() )
+	{
+		box.Init();
+		return;
+	}
+#endif
 	Matrix3 mat = inode->GetObjectTM(t);
 	UpdateMesh(t, vpt);
 	if (pblock2->GetInt(nh_nullshape))
@@ -506,6 +529,13 @@ void NullHelperObject::GetWorldBoundBox(
 \*===========================================================================*/
 
 int NullHelperObject::HitTest(TimeValue t, INode *inode, int type, int crossing, int flags, IPoint2 *p, ViewExp *vpt) {
+#if MAX_VERSION_MAJOR >= 15 //Max 2013
+	if ( ! vpt || ! vpt->IsAlive() )
+	{
+		DbgAssert(!_T("Invalid viewport!"));
+		return FALSE;
+	}
+#endif
 	BOOL b;
 	int i;
 	HitRegion hitRegion;
@@ -635,6 +665,13 @@ void NullHelperObject::SetDrawColors(INode* inode)
 	}
 
 int NullHelperObject::Display(TimeValue t, INode* inode, ViewExp *vpt, int flags) {
+#if MAX_VERSION_MAJOR >= 15 //Max 2013
+	if ( ! vpt || ! vpt->IsAlive() )
+	{
+		DbgAssert(!_T("Invalid viewport!"));
+		return FALSE;
+	}
+#endif
 	BOOL b;
 
 	// Setup object->screen transform
@@ -810,9 +847,18 @@ int NullHelperObject::Display(TimeValue t, INode* inode, ViewExp *vpt, int flags
 	{
 		op.y -= 16;
 
+#if MAX_VERSION_MAJOR < 12 //Max 2010
 		TCHAR* labelText;
+#else
+		const TCHAR* labelText;
+#endif
 		pblock2->GetValue(nh_label,t,labelText,FOREVER);
+#if MAX_VERSION_MAJOR < 12 //Max 2010
 		gw->hText(&op, labelText);
+#else
+		TSTR labelTextStr = labelText;
+		gw->hText(&op, labelTextStr);
+#endif
 
 		op.y += 16;
 	}
@@ -898,11 +944,20 @@ void NullHelperObject::MaybeEnlargeViewportRect(GraphicsWindow *gw, Rect &rect)
 			rect.right = gw->getWinSizeX();
 			rect.bottom = gw->getWinSizeY();
 		} else {
+#if MAX_VERSION_MAJOR < 12 //Max 2010
 			TCHAR* labelText;
+#else
+			const TCHAR* labelText;
+#endif
 			SIZE size;
 			pblock2->GetValue(nh_label,0,labelText,FOREVER);
 
+#if MAX_VERSION_MAJOR < 12 //Max 2010
 			gw->getTextExtents(labelText, &size);
+#else
+			TSTR labelTextStr = labelText;
+			gw->getTextExtents(labelTextStr, &size);
+#endif
 			int hw = rect.w() / 2;
 			if (hw < size.cx)
 				rect.SetW(hw + size.cx + 3);

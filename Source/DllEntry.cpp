@@ -5,13 +5,7 @@ HINSTANCE hInstance;
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved)
 {
-#if (MAX_RELEASE >= 9000)
-	if (fdwReason == DLL_PROCESS_ATTACH)
-	{
-		hInstance = hinstDLL;
-		DisableThreadLibraryCalls(hInstance);
-	}
-#else
+#if MAX_VERSION_MAJOR < 9	//Max 9
 	hInstance = hinstDLL;				// Hang on to this DLL's instance handle.
 
 	static BOOL controlsInit = FALSE;
@@ -19,6 +13,12 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved)
 		controlsInit = TRUE;
 		InitCustomControls(hInstance);	// Initialize MAX's custom controls
 		InitCommonControls();			// Initialize Win95 controls
+	}
+#else
+	if (fdwReason == DLL_PROCESS_ATTACH)
+	{
+		hInstance = hinstDLL;
+		DisableThreadLibraryCalls(hInstance);
 	}
 #endif
 
@@ -33,7 +33,6 @@ __declspec( dllexport ) int LibNumberClasses() {
 	return 1;
 }
 
-
 __declspec( dllexport ) ClassDesc* LibClassDesc(int i) {
 	switch(i) {
 		case 0: return GetNullHelperDesc();
@@ -41,14 +40,21 @@ __declspec( dllexport ) ClassDesc* LibClassDesc(int i) {
 	}
 }
 
-
 __declspec( dllexport ) ULONG LibVersion() { return VERSION_3DSMAX; }
 
+__declspec( dllexport ) ULONG CanAutoDefer()
+{
+	return 1;
+}
 
 TCHAR *GetString(int id) {
 	static TCHAR buf[256];
 	if(hInstance)
+#if MAX_VERSION_MAJOR < 15	//Max 2013
 		return LoadString(hInstance, id, buf, sizeof(buf)) ? buf : NULL;
+#else
+		return LoadString(hInstance, id, buf, _countof(buf)) ? buf : NULL;
+#endif	
 
 	return NULL;
 }
